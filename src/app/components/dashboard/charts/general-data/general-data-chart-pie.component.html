@@ -1,0 +1,14 @@
+<div style="display: block" *ngIf="sumTotal > 0">
+  <canvas baseChart
+    [data]="pieChartData"
+    [labels]="pieChartLabels"
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas>
+</div>
+
+<div class="no-data" *ngIf="sumTotal == 0">
+  <span>Sem dados a serem exibidos</span>
+</div>

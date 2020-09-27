@@ -1,0 +1,21 @@
+<div class="grid-container">
+  <mat-grid-list cols="2" rowHeight="25rem">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div *ngIf="card.title == 'Visão Geral'">
+            <app-general-data-chart-pie></app-general-data-chart-pie>
+          </div>
+          <div *ngIf="card.title == 'Livros Mais Alugados'">
+            <app-most-rented-books-chart-column></app-most-rented-books-chart-column>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

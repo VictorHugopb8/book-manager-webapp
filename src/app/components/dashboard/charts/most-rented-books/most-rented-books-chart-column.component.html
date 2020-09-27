@@ -1,0 +1,14 @@
+<div style="display: block;" *ngIf="barChartData.length > 0">
+  <canvas baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [chartType]="barChartType">
+  </canvas>
+</div>
+
+<div class="no-data" *ngIf="barChartData.length == 0">
+  <span>Sem dados a serem exibidos</span>
+</div>

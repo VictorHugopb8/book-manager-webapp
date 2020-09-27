@@ -1,0 +1,45 @@
+<div class="grid-table">
+
+  <table mat-table matSort class="table" [dataSource]="pageSlice">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef class="id">Id</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="name">Nome</th>
+        <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+  
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef class="email">Email</th>
+        <td mat-cell *matCellDef="let row">{{row.email}}</td>
+    </ng-container>
+  
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef class="phone">Telefone</th>
+        <td mat-cell *matCellDef="let row">{{row.phone | phone }}</td>
+    </ng-container>
+  
+    <!-- NationalId Column -->
+    <ng-container matColumnDef="nationalId">
+        <th mat-header-cell *matHeaderCellDef class="nationalId">CPF</th>
+        <td mat-cell *matCellDef="let row">{{row.nationalId | cpf }}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<mat-paginator class="paginator"
+  [length]="customers?.length"
+  [pageSize]="[25]"
+  [pageSizeOptions]="[10, 25, 50, 100]"
+  (page)="onPageChange($event)">
+</mat-paginator>
+  
